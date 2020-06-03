@@ -35,6 +35,8 @@ public class MainFrame extends javax.swing.JFrame {
 
     /**
      * Tao form MainFrame
+     * update
+     * last update
      */
     public static boolean isSaved;
     private BufferedImage buff_img = null;
@@ -43,6 +45,7 @@ public class MainFrame extends javax.swing.JFrame {
     private PadPaint padPaint = null;
     private final JFileChooser fc = new JFileChooser();
     private JPanel backgroundPanel = new JPanel();
+    private int height = 600,width = 400;
 
     public MainFrame() {
         initComponents();
@@ -64,9 +67,10 @@ public class MainFrame extends javax.swing.JFrame {
         saveAsFile.setIcon(new ImageIcon(getImageIcon("/icon/saveAs.png")));
         exitFile.setIcon(new ImageIcon(getImageIcon("/icon/exit.png")));
         
-
+        width_tf.setText("400");
+        height_tf.setText("600");
         
-        padPaint = new PadPaint(909, 439);
+        padPaint = new PadPaint(width, height);
         backgroundPanel.setLayout(null);
         backgroundPanel.setBackground(new Color(204, 204, 255));
         buff_img = padPaint.getBuffer();
@@ -135,7 +139,8 @@ public class MainFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTabbedPane2 = new javax.swing.JTabbedPane();
+        jTabbedPane3 = new javax.swing.JTabbedPane();
+        SettingPane = new javax.swing.JTabbedPane();
         jPanel4 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
@@ -158,6 +163,11 @@ public class MainFrame extends javax.swing.JFrame {
         bZoomMinus = new javax.swing.JButton();
         bZoomorg = new javax.swing.JButton();
         textPanel1 = new property.TextPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        width_tf = new javax.swing.JTextField();
+        height_tf = new javax.swing.JTextField();
+        OK_btn = new javax.swing.JToggleButton();
         sZoom = new javax.swing.JSlider();
         bZoomOut = new javax.swing.JButton();
         bZoomIn = new javax.swing.JButton();
@@ -234,6 +244,7 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        bRedo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255), new java.awt.Color(0, 255, 0), new java.awt.Color(255, 255, 102)));
         bRedo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bRedoActionPerformed(evt);
@@ -348,7 +359,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(colorDialog1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
-        jTabbedPane2.addTab("Home", jPanel4);
+        SettingPane.addTab("Home", jPanel4);
 
         jPanel1.setBackground(new java.awt.Color(233, 247, 247));
 
@@ -408,15 +419,43 @@ public class MainFrame extends javax.swing.JFrame {
 
         textPanel1.setBackground(new java.awt.Color(233, 247, 247));
 
+        jLabel3.setText("Height:");
+
+        jLabel4.setText("Width:");
+
+        width_tf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                width_tfActionPerformed(evt);
+            }
+        });
+
+        OK_btn.setText("OK");
+        OK_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                OK_btnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(width_tf, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(height_tf, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(OK_btn))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(textPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(312, 312, 312)
+                .addGap(221, 221, 221)
                 .addComponent(bReplay, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(6, 6, 6)
                 .addComponent(bLibrary, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -424,14 +463,28 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(textPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(bReplay, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(bLibrary, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(textPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bReplay, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bLibrary, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(width_tf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel4))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(height_tf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel3))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(OK_btn))
+                            .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        jTabbedPane2.addTab("Option", jPanel1);
+        SettingPane.addTab("Option", jPanel1);
 
         sZoom.setMajorTickSpacing(10);
         sZoom.setMinimum(20);
@@ -539,12 +592,12 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(sZoom, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(2, 2, 2)
                 .addComponent(bZoomIn, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1078, Short.MAX_VALUE)
+            .addComponent(SettingPane, javax.swing.GroupLayout.PREFERRED_SIZE, 1078, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(SettingPane, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(scrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -619,10 +672,6 @@ public class MainFrame extends javax.swing.JFrame {
             }
         }
     }
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        padPaint.paste();
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void newFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newFileActionPerformed
         if (padPaint.isSaving() == false) {
             Object[] option = {"Save", "Don't Save", "Cancel"};
@@ -728,32 +777,6 @@ public class MainFrame extends javax.swing.JFrame {
     private void saveAsFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveAsFileActionPerformed
         saveImageToFile();
     }//GEN-LAST:event_saveAsFileActionPerformed
-//update by hung
-    private void cbTransformActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbTransformActionPerformed
-        if (cbTransform.getSelectedItem() == cbTransform.getItemAt(1)) {
-            padPaint.rotate(90);
-            
-        } else if (cbTransform.getSelectedItem() == cbTransform.getItemAt(2)) {
-            padPaint.rotate(-90);
-            
-        } else if (cbTransform.getSelectedItem() == cbTransform.getItemAt(3)) {
-            padPaint.rotate(180);
-            
-        } else if (cbTransform.getSelectedItem() == cbTransform.getItemAt(4)) {
-            padPaint.flipping(1);
-            
-        } else if (cbTransform.getSelectedItem() == cbTransform.getItemAt(5)) {
-            padPaint.flipping(2);
-            
-        }
-        buff_img = padPaint.getBuffer();
-        backgroundPanel.setPreferredSize(new Dimension(padPaint.getWidth() + 30, padPaint.getHeight() + 30));
-        cbTransform.setSelectedIndex(0);
-    }//GEN-LAST:event_cbTransformActionPerformed
-
-    private void cbTransformItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbTransformItemStateChanged
-
-    }//GEN-LAST:event_cbTransformItemStateChanged
 
     private void sZoomStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_sZoomStateChanged
         padPaint.setZoom(sZoom.getValue());
@@ -763,38 +786,6 @@ public class MainFrame extends javax.swing.JFrame {
         backgroundPanel.setPreferredSize(new Dimension(padPaint.getWidth() + 30, padPaint.getHeight() + 30));
 
     }//GEN-LAST:event_sZoomStateChanged
-
-    private void paintToolPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_paintToolPropertyChange
-        System.out.println("tool change");
-    }//GEN-LAST:event_paintToolPropertyChange
-
-    private void paintToolMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_paintToolMouseClicked
-
-    }//GEN-LAST:event_paintToolMouseClicked
-
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        // TODO add your handling code here:
-        padPaint.paste();
-    }//GEN-LAST:event_jButton1MouseClicked
-
-    private void bUndoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bUndoActionPerformed
-        padPaint.undo();        // TODO add your handling code here:
-    }//GEN-LAST:event_bUndoActionPerformed
-
-    private void bRedoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRedoActionPerformed
-        padPaint.redo();    }//GEN-LAST:event_bRedoActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        padPaint.delete();
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void bCutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCutActionPerformed
-        padPaint.cut();
-    }//GEN-LAST:event_bCutActionPerformed
-
-    private void bCopyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCopyActionPerformed
-        padPaint.copy();
-    }//GEN-LAST:event_bCopyActionPerformed
 
     private void bZoomorgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bZoomorgActionPerformed
         sZoom.setValue(60);
@@ -837,6 +828,112 @@ public class MainFrame extends javax.swing.JFrame {
         new ReplayDialog(this, true, padPaint.getListState());
     }//GEN-LAST:event_bReplayActionPerformed
 
+    private void paintToolPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_paintToolPropertyChange
+        System.out.println("tool change");
+    }//GEN-LAST:event_paintToolPropertyChange
+
+    private void paintToolMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_paintToolMouseClicked
+
+    }//GEN-LAST:event_paintToolMouseClicked
+
+    private void bRedoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRedoActionPerformed
+
+    }//GEN-LAST:event_bRedoActionPerformed
+
+    private void bUndoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bUndoActionPerformed
+        padPaint.undo();        // TODO add your handling code here:
+    }//GEN-LAST:event_bUndoActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        padPaint.delete();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void bCutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCutActionPerformed
+        padPaint.cut();
+    }//GEN-LAST:event_bCutActionPerformed
+
+    private void bCopyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCopyActionPerformed
+        padPaint.copy();
+    }//GEN-LAST:event_bCopyActionPerformed
+
+//update by hung
+    private void cbTransformActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbTransformActionPerformed
+        if (cbTransform.getSelectedItem() == cbTransform.getItemAt(1)) {
+            padPaint.rotate(90);
+
+        } else if (cbTransform.getSelectedItem() == cbTransform.getItemAt(2)) {
+            padPaint.rotate(-90);
+
+        } else if (cbTransform.getSelectedItem() == cbTransform.getItemAt(3)) {
+            padPaint.rotate(180);
+
+        } else if (cbTransform.getSelectedItem() == cbTransform.getItemAt(4)) {
+            padPaint.flipping(1);
+
+        } else if (cbTransform.getSelectedItem() == cbTransform.getItemAt(5)) {
+            padPaint.flipping(2);
+
+        }
+        buff_img = padPaint.getBuffer();
+        backgroundPanel.setPreferredSize(new Dimension(padPaint.getWidth() + 30, padPaint.getHeight() + 30));
+        cbTransform.setSelectedIndex(0);
+    }//GEN-LAST:event_cbTransformActionPerformed
+
+    private void cbTransformItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbTransformItemStateChanged
+
+    }//GEN-LAST:event_cbTransformItemStateChanged
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        padPaint.paste();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+        padPaint.paste();
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void width_tfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_width_tfActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_width_tfActionPerformed
+
+    private void OK_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OK_btnActionPerformed
+        // TODO add your handling code here:
+        try{
+            int value = Integer.parseInt(width_tf.getText());
+            if(value > 0)
+                width = value;
+            else{
+                JOptionPane.showMessageDialog(null,"Width value must be larger than 0!", "Invalid value", JOptionPane.ERROR_MESSAGE);
+                width_tf.setText(String.valueOf(width));
+                height_tf.setText(String.valueOf(height));
+                return;
+            }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,"Width value must be integer!", "Invalid value", JOptionPane.ERROR_MESSAGE);
+            width_tf.setText(String.valueOf(width));
+            height_tf.setText(String.valueOf(height));
+            return;
+        }
+
+        try{
+            int value = Integer.parseInt(height_tf.getText());
+            if(value > 0)
+                height = value;
+            else{
+                JOptionPane.showMessageDialog(null,"Height value must be larger than 0!", "Invalid value", JOptionPane.ERROR_MESSAGE);
+                width_tf.setText(String.valueOf(width));
+                height_tf.setText(String.valueOf(height));
+                return;
+            }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,"Height value must be integer!", "Invalid value", JOptionPane.ERROR_MESSAGE);
+            width_tf.setText(String.valueOf(width));
+            height_tf.setText(String.valueOf(height));
+            return;
+        }
+        padPaint = new PadPaint(width, height);
+    }//GEN-LAST:event_OK_btnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -876,6 +973,8 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JToggleButton OK_btn;
+    private javax.swing.JTabbedPane SettingPane;
     private javax.swing.JButton bCopy;
     private javax.swing.JButton bCut;
     private javax.swing.JButton bLibrary;
@@ -891,10 +990,13 @@ public class MainFrame extends javax.swing.JFrame {
     private property.ColorDialog colorDialog1;
     private javax.swing.JMenuItem exitFile;
     private javax.swing.Box.Filler filler1;
+    private javax.swing.JTextField height_tf;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
@@ -902,7 +1004,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPopupMenu.Separator jSeparator1;
-    private javax.swing.JTabbedPane jTabbedPane2;
+    private javax.swing.JTabbedPane jTabbedPane3;
     private javax.swing.JLabel lbLocation;
     private javax.swing.JLabel lbSize;
     private javax.swing.JLabel lbZoomInfo;
@@ -916,5 +1018,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane scrollPane;
     private property.StrokeState strokeState;
     private property.TextPanel textPanel1;
+    private javax.swing.JTextField width_tf;
     // End of variables declaration//GEN-END:variables
 }
