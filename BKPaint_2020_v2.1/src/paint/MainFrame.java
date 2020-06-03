@@ -35,8 +35,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     /**
      * Tao form MainFrame
-     * update
-     * last update
+     * update 21h33
      */
     public static boolean isSaved;
     private BufferedImage buff_img = null;
